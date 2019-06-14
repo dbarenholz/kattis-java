@@ -1,21 +1,29 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+package carefulascent;
 
+import java.io.*;
+import java.util.*;
+
+/**
+ * Solution to the careful ascent problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class carefulascent {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args)
+            throws IOException {
         (new carefulascent()).run();
     }
 
-    void run() throws IOException {
+    private void run()
+            throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter w =
+                new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer s = new StringTokenizer(r.readLine());
         // save the x and y positions of firefly
-        int[] pos = { Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()) };
+        int[] pos = {Integer.parseInt(s.nextToken()),
+                Integer.parseInt(s.nextToken())};
 
         // the amount of shields to go through
         int nShields = Integer.parseInt(r.readLine());
@@ -48,4 +56,5 @@ public class carefulascent {
         w.write((pos[0] / effective) + "\n");
         w.flush();
     }
+
 }

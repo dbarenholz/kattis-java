@@ -1,17 +1,24 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+package easiest;
 
+import java.io.*;
+
+/**
+ * Solution to the easiest problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class easiest {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args)
+            throws IOException {
         (new easiest()).run();
     }
 
-    void run() throws IOException {
+    private void run()
+            throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter w =
+                new BufferedWriter(new OutputStreamWriter(System.out));
 
         // always read
         while (true) {
@@ -35,10 +42,12 @@ public class easiest {
     }
 
     /**
-     * @param a
+     * Helper function to sum all digits of a number
+     *
+     * @param a a number
      * @return sum of all digits of a
      */
-    int sumDigit(int a) {
+    private int sumDigit(int a) {
         int sum = 0;
         while (a > 0) {
             sum += a % 10;
@@ -46,4 +55,5 @@ public class easiest {
         }
         return sum;
     }
+
 }

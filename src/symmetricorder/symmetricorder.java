@@ -1,19 +1,25 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
+package symmetricorder;
 
+import java.io.*;
+import java.util.*;
+
+/**
+ * Solution to the symmetric order problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class symmetricorder {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args)
+            throws IOException {
         (new symmetricorder()).run();
     }
 
-    void run() throws IOException {
+    private void run()
+            throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter w =
+                new BufferedWriter(new OutputStreamWriter(System.out));
 
         int caseNo = 1;
 
@@ -59,4 +65,5 @@ public class symmetricorder {
         w.flush();
 
     }
+
 }

@@ -1,26 +1,33 @@
 package aaah;
 
-import java.util.Scanner;
+import java.util.*;
 
+/**
+ * Solution to the Aah problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class Aah {
-	private Scanner sc = new Scanner(System.in);
 
-	private boolean go() {
-		String person = sc.next();
-		String doctor = sc.next();
+    private Scanner sc = new Scanner(System.in);
 
-		return doctor.length() <= person.length();
-	}
+    private boolean go() {
+        String person = sc.next();
+        String doctor = sc.next();
 
-	private void run() {
-		if (go()) {
-			System.out.print("go");
-		} else {
-			System.out.print("no");
-		}
-	}
+        return doctor.length() <= person.length();
+    }
 
-	public static void main(String[] a) {
-		(new Aah()).run();
-	}
+    private void run() {
+        if (go()) {
+            System.out.print("go");
+        } else {
+            System.out.print("no");
+        }
+    }
+
+    public static void main(String[] a) {
+        (new Aah()).run();
+    }
+
 }

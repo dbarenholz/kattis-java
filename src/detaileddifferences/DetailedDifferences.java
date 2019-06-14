@@ -1,42 +1,56 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+package detaileddifferences;
 
+import java.io.*;
+
+/**
+ * Solution to the detailed differences problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class DetailedDifferences {
-	void run() throws IOException {
-		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int testcases = Integer.parseInt(r.readLine());
+    public static void main(String[] a)
+            throws IOException {
+        (new DetailedDifferences()).run();
+    }
 
-		while (testcases-- > 0) {
-			String c = "";
-			char[] a = r.readLine().toCharArray();
-			w.write(makeString(a) + "\n");
-			char[] b = r.readLine().toCharArray();
-			w.write(makeString(b) + "\n");
+    private void run()
+            throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w =
+                new BufferedWriter(new OutputStreamWriter(System.out));
 
-			for (int i = 0; i < a.length; i++) {
-				c += (a[i] == b[i]) ? "." : "*";
-			}
-			w.write(c + "\n");
+        int testcases = Integer.parseInt(r.readLine());
 
-		}
-		w.flush();
+        while (testcases-- > 0) {
+            String c = "";
+            char[] a = r.readLine().toCharArray();
+            w.write(makeString(a) + "\n");
+            char[] b = r.readLine().toCharArray();
+            w.write(makeString(b) + "\n");
 
-	}
+            for (int i = 0; i < a.length; i++) {
+                c += (a[i] == b[i]) ? "." : "*";
+            }
+            w.write(c + "\n");
 
-	private String makeString(char[] carr) {
-		String ret = "";
-		for (char c : carr) {
-			ret += c;
-		}
-		return ret;
-	}
+        }
+        w.flush();
 
-	public static void main(String[] a) throws IOException {
-		(new DetailedDifferences()).run();
-	}
+    }
+
+    /**
+     * Creates a string from a character array.
+     *
+     * @param carr character array
+     * @return String from character array
+     */
+    private String makeString(char[] carr) {
+        StringBuilder ret = new StringBuilder();
+        for (char c : carr) {
+            ret.append(c);
+        }
+        return ret.toString();
+    }
+
 }

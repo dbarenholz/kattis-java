@@ -1,44 +1,53 @@
-import java.util.Scanner;
+package cetvrta;
 
+import java.util.*;
+
+/**
+ * Solution to the cetvrta problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class cetvrta {
-	Scanner sc = new Scanner(System.in);
 
-	void run() {
-		int x = 0;
-		int y = 0;
+    private Scanner sc = new Scanner(System.in);
 
-		int[] xVal = new int[3];
-		int[] yVal = new int[3];
+    public static void main(String[] a) {
+        (new cetvrta()).run();
+    }
 
-		for (int i = 0; i < 3; i++) {
-			xVal[i] = sc.nextInt();
-			yVal[i] = sc.nextInt();
-		}
+    private void run() {
+        int x = 0;
+        int y = 0;
 
-		for (int i = 0; i < 3; i++) {
-			// System.out.println(yVal[i]);
-		}
+        int[] xVal = new int[3];
+        int[] yVal = new int[3];
 
-		if (xVal[0] == xVal[1]) {
-			x = xVal[2];
-		} else if (xVal[1] == xVal[2]) {
-			x = xVal[0];
-		} else {
-			x = xVal[1];
-		}
+        for (int i = 0; i < 3; i++) {
+            xVal[i] = sc.nextInt();
+            yVal[i] = sc.nextInt();
+        }
 
-		if (yVal[0] == yVal[1]) {
-			y = yVal[2];
-		} else if (yVal[1] == yVal[2]) {
-			y = yVal[0];
-		} else {
-			y = yVal[1];
-		}
+        for (int i = 0; i < 3; i++) {
+            // System.out.println(yVal[i]);
+        }
 
-		System.out.println(x + " " + y);
-	}
+        if (xVal[0] == xVal[1]) {
+            x = xVal[2];
+        } else if (xVal[1] == xVal[2]) {
+            x = xVal[0];
+        } else {
+            x = xVal[1];
+        }
 
-	public static void main(String[] a) {
-		(new cetvrta()).run();
-	}
+        if (yVal[0] == yVal[1]) {
+            y = yVal[2];
+        } else if (yVal[1] == yVal[2]) {
+            y = yVal[0];
+        } else {
+            y = yVal[1];
+        }
+
+        System.out.println(x + " " + y);
+    }
+
 }

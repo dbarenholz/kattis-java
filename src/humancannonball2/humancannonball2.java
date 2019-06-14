@@ -1,26 +1,33 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+package humancannonball2;
 
+import java.io.*;
+import java.util.*;
+
+/**
+ * Solution to the human cannonball problem.
+ *
+ * @author Daniel Barenholz
+ */
 public class humancannonball2 {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args)
+            throws IOException {
         (new humancannonball2()).run();
     }
 
     /**
+     * Helper function to find if it is safe.
      *
-     * @param initVel
-     * @param angleInDeg
-     * @param horDist
-     * @param loEdge
-     * @param upEdge
-     * @return true if it is safe
+     * @param initVel    initial velocity
+     * @param angleInDeg angle in degrees
+     * @param horDist    horizontal distance
+     * @param loEdge     lower edge
+     * @param upEdge     upper edge
+     * @return {@code true} if it is safe, {@code false} otherwise
      */
-    boolean findSafe(double initVel, double angleInDeg, double horDist, double loEdge, double upEdge) {
-        final double G = 9.81;
+    private boolean findSafe(double initVel, double angleInDeg, double horDist,
+                             double loEdge, double upEdge) {
+        double G = 9.81;
         double theta = Math.toRadians(angleInDeg);
 
         // Step 1: find t via x(t)
@@ -29,16 +36,14 @@ public class humancannonball2 {
         // Step 2: find out if between h1 and h2 via y(t)
         double y = (initVel * t * Math.sin(theta)) - ((G * t * t) / (2.0));
 
-        if ((y < (upEdge - 1)) && (y > (loEdge + 1))) {
-            return true;
-        } else {
-            return false;
-        }
+        return (y < (upEdge - 1)) && (y > (loEdge + 1));
     }
 
-    void run() throws IOException {
+    private void run()
+            throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter w =
+                new BufferedWriter(new OutputStreamWriter(System.out));
         String safe = "Safe\n";
         String notSafe = "Not Safe\n";
 
@@ -54,4 +59,5 @@ public class humancannonball2 {
         }
         w.flush();
     }
+
 }
